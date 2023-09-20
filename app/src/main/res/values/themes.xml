@@ -1,0 +1,4 @@
+<resources>
+
+    <style name="Theme.TvTakeAway" parent="@style/Theme.Leanback" />
+</resources>

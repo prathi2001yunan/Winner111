@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlinx-serialization'
+}
+
+android {
+    namespace 'cash.spont.v6.tvtakeaway'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "cash.spont.v6.tvtakeaway"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }
+    packagingOptions {
+        resources {
+            excludes += 'META-INF/DEPENDENCIES'
+        }
+    }
+}
+
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    //Navigation
+    implementation "androidx.navigation:navigation-compose:2.5.3"
+    // Ktor
+    def ktor_version = "1.6.3"
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-android:$ktor_version")
+    implementation("io.ktor:ktor-client-serialization:$ktor_version")
+    implementation("io.ktor:ktor-client-logging:$ktor_version")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
+    // Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0"
+    // Qr-code
+    implementation "com.google.zxing:core:3.5.0"
+    // Joda-Time
+    implementation "joda-time:joda-time:2.10.10"
+    // Data-Store
+    implementation "androidx.datastore:datastore: 1.0.0"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+
+}
